@@ -1,0 +1,53 @@
+**POSTMAN**
+
+1.index [get]
+/api/posts
+------------------------------------------------------------------------------------------------------------------
+2.create [post]
+/api/posts
+
+Body
+{
+    "title": "Name",
+    "description": "Desc",
+    "content": "Content",
+    "author": "name surname",
+    "pubDate": "2024-20-04",
+    "thumbnailUrl": "https://example.com/thumbnail.jpg",
+    "link": "https://example.com/post",
+    "category": "Category"
+}
+------------------------------------------------------------------------------------------------------------------
+3.show [get]
+api/posts/{id}
+------------------------------------------------------------------------------------------------------------------
+4.update[put]
+api/posts/{id}
+Body
+{
+    "title": "Name",
+    "description": "Desc",
+    "content": "Content",
+    "author": "name surname",
+    "pubDate": "2024-20-04",
+    "thumbnailUrl": "https://example.com/thumbnail.jpg",
+    "link": "https://example.com/post",
+    "category": "Category"
+}
+------------------------------------------------------------------------------------------------------------------
+5.destroy [delete]
+api/posts/{id}
+------------------------------------------------------------------------------------------------------------------
+6. search [get]
+api/posts
+
+search:
+Key: search || Value: your_search_query
+
+sort:
+Key: sort_by || Value: your_sort_field
+
+filter:
+Key: category || Value: your_category
+------------------------------------------------------------------------------------------------------------------
+

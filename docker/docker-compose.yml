@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  php:
+    build: ./php
+    container_name: tools_php-php
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ../laravel:/var/www
+    depends_on:
+      - postgres
+    networks:
+      - tools_php-network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: tools_php-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ../laravel:/var/www
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - php
+    networks:
+      - tools_php-network
+
+  postgres:
+    image: postgres:13.3
+    container_name: tools_php-postgresql
+    environment:
+      POSTGRES_DB: "postDb"
+      POSTGRES_USER: "postUser"
+      POSTGRES_PASSWORD: "postPass"
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - tools_php-network
+
+networks:
+  tools_php-network:
+    driver: bridge
