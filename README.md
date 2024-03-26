@@ -1,5 +1,7 @@
+**Parsing news feeds, with further interaction with data**
 
-1. **Путь:**
+
+1. **Path:**
 
     ```bash
     cd docker
@@ -11,7 +13,7 @@
     docker-compose up --build -d
     ```
 
-3. **Налаштування для БД:**
+3. **DB Settings:**
 
     ```bash
     POSTGRES
@@ -47,7 +49,7 @@
     * * * * * docker exec tools_php-php php /var/www/artisan rss:get-parse >> <путь_до_проекту>/cron.log 2>&1
     ```
 
-8. **Api-запити для postman.**
+8. **Api-for POSTMAN.**
 
     ```bash
     HOW TO USE.txt
